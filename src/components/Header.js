@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
+import { Navbar, NavbarBrand, Nav, NavItem } from 'reactstrap';
 
 class Header extends Component {
 
@@ -8,7 +8,9 @@ class Header extends Component {
             <React.Fragment>
                 <Navbar dark color="primary">
                     <div className="container">
-                        <NavbarBrand className="text-center" href="/">Post It</NavbarBrand>
+                        <NavbarBrand href="/">Post It</NavbarBrand>
+                        <NavbarBrand className="ml-auto">Bagas Naufal Insani</NavbarBrand>
+                        
                     </div>          
                 </Navbar>
             </React.Fragment>

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import {
+    Card, CardText, CardBody,
+    CardTitle, Button, Form
+  } from 'reactstrap';
 
 class EditComponent extends Component {
     
@@ -18,15 +21,23 @@ class EditComponent extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleEdit}>
-                    <input required type="text" ref={(input) => this.getTitle = input}
-                    defaultValue={this.props.post.title} placeholder="Enter Post Title" />
-                    <br /><br />
-                    <textarea required rows="5" ref={(input) => this.getMessage = input}
-                    defaultValue={this.props.post.message} cols="28" placeholder="Enter Post" />
-                    <br /><br />
-                    <button>Update</button>
-                </form>
+                <Card className="shadow p-3 mb-5 bg-white rounded">
+                    <CardBody>
+                        <Form onSubmit={this.handleEdit}>
+                            <CardTitle>
+                                <input required type="text" ref={(input) => this.getTitle = input}
+                                    defaultValue={this.props.post.title} placeholder="Enter Post Title" 
+                                    className="form-control" />
+                            </CardTitle>
+                            <CardText>
+                                <textarea required rows="5" ref={(input) => this.getMessage = input}
+                                    defaultValue={this.props.post.message} cols="28" placeholder="Enter Post" 
+                                    className="form-control" />    
+                            </CardText>
+                            <Button color="info">Update</Button>
+                        </Form>
+                    </CardBody> 
+                </Card>
             </div>
         );
     }
