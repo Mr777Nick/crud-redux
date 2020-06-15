@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { Col, Row, Form, Button } from 'reactstrap';
 
 class PostForm extends Component {
 
@@ -22,17 +23,38 @@ class PostForm extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Create Post</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <input required type="text" ref={(input) => this.getTitle = input} 
-                        placeholder="Enter Post Title" />
-                    <br /><br />
-                    <textarea required rows="5"  ref={(input)=>this.getMessage = input} 
-                        cols="28" placeholder="Enter Post" />
-                    <br /><br />
-                    <button>Post</button>
-                </form>
+            <div className="container">
+                <Row className="row-content">
+                    <Col md={12} className="text-center">
+                        <h1>Create Post</h1>
+                    </Col>
+                    <Col md={12}>
+                        <Form onSubmit={this.handleSubmit}>
+                            <Row className="form-group">
+                                <Col md={12}>
+                                    <input required type="text" ref={(input) => this.getTitle = input} 
+                                        placeholder="Enter Post Title" 
+                                        className="form-control" />
+                                </Col>
+                                
+                            </Row>
+                            <Row className="form-group">
+                                <Col md={12}>
+                                    <textarea required rows="5"  ref={(input)=>this.getMessage = input} 
+                                        cols="28" placeholder="Enter Post" 
+                                        className="form-control" />
+                                </Col>
+                            </Row>
+                            <Row className="form-group">
+                                <Col md={12} className="text-center">
+                                    <Button size="lg">
+                                        <span className="fa fa-pencil"></span> Post
+                                    </Button>
+                                </Col>
+                            </Row>
+                        </Form>
+                    </Col>
+                </Row>
             </div>
         );
     }
