@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PostForm from './components/PostForm';
 import AllPost from './components/AllPost';
 import Header from './components/Header';
@@ -6,12 +6,12 @@ import Header from './components/Header';
 class App extends Component {
     render() {
         return (
-            <div>
+            <Fragment>
                 <Header />
                 <PostForm />
                 <hr/>
                 <AllPost />
-            </div>
+            </Fragment>
         );
     }
 }

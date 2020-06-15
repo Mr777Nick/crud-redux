@@ -1,30 +1,47 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import Post from './Post';
 import EditComponent from './EditComponent';
-import { Col, Row } from 'reactstrap';
+import Grid from '@material-ui/core/Grid'
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
+
+
+const styles = theme => ({
+    root: {
+        marginTop: 16,
+        marginBottom: 16,
+        padding: 16,
+        // boxShadow: "0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12)"
+    },
+    button: {
+        marginTop: 16,
+    }
+});
 
 class AllPost extends Component {
     render() {
-        return (
-            <div className="container">
-                <Row className="row-content">
-                    <Col md={12} className="text-center">
-                        <h1>All Posts</h1>
-                    </Col>
+        const { classes } = this.props;
 
-                    <Col md={12}>
+        return (
+            <Container maxWidth="sm" className={classes.root}>
+                <Grid container alignItems="center" justify="center">
+                    <Grid item xs={12}>
+                        <Typography variant="h2" align="center" color="textPrimary" display="block" gutterBottom>
+                            All Posts
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={12}>
                         {this.props.posts.map((post) => (
-                            <div key={post.id} className="text-center">
+                            <Fragment key={post.id}>
                                 {post.editing ? <EditComponent post={post} key={post.id} /> :
                                     <Post key={post.id} post={post} />}
-                            </div>
+                            </Fragment>
                         ))}
-                    </Col>
-                
-                
-                </Row>
-            </div>
+                    </Grid>
+                </Grid>
+            </Container>
         );
     }
 }
@@ -34,4 +51,4 @@ const mapStateToProps = (state) => {
         posts: state
     }
 }
-export default connect(mapStateToProps)(AllPost);
+export default connect(mapStateToProps)(withStyles(styles, { withTheme: true })(AllPost));

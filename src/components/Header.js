@@ -1,22 +1,34 @@
-import React, { Component } from 'react';
-import { Navbar, NavbarBrand, Nav, NavItem } from 'reactstrap';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
-class Header extends Component {
+const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+    },
+    title: {
+        flexGrow: 1,
+    },
+}));
 
-    render() {
-        return(
-            <React.Fragment>
-                <Navbar dark color="primary">
-                    <div className="container">
-                        <NavbarBrand href="/">Post It</NavbarBrand>
-                        <NavbarBrand className="ml-auto">Bagas Naufal Insani</NavbarBrand>
-                        
-                    </div>          
-                </Navbar>
-            </React.Fragment>
-        );
-    }
+export default function Header() {
+    const classes = useStyles();
+
+    return(
+        <div className={classes.root}>
+            <AppBar position="static">
+                <Toolbar>
+                <Typography variant="h6" className={classes.title}>
+                    Post It
+                </Typography>
+                <Typography color="inherit">
+                    Bagas Naufal Insani
+                </Typography>
+                </Toolbar>
+            </AppBar>
+        </div>
+    );
 
 }
-
-export default Header; 
