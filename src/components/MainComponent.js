@@ -1,16 +1,19 @@
 import React, { Component, Fragment } from 'react';
-import PostForm from './PostForm';
-import AllPost from './AllPost';
+import PostForm from './PostFormComponent';
+import AllPost from './AllPostComponent';
 import Header from './Header';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 class Main extends Component {
     render() {
         return (
             <Fragment>
                 <Header />
-                <PostForm />
-                <hr/>
-                <AllPost />
+                <Switch>
+                    <Route path="/home" component={PostForm} />
+                    <Route path="/posts" component={AllPost} />
+                    <Redirect to="/home" />
+                </Switch>
             </Fragment>
         )
     }
