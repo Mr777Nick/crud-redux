@@ -1,18 +1,12 @@
-import React, { Component, Fragment } from 'react';
-import PostForm from './components/PostForm';
-import AllPost from './components/AllPost';
-import Header from './components/Header';
+import React, { Component } from 'react';
+import Main from './components/MainComponent';
 
 class App extends Component {
     render() {
         return (
-            <Fragment>
-                <Header />
-                <PostForm />
-                <hr/>
-                <AllPost />
-            </Fragment>
+            <Main />
         );
     }
 }
+
 export default App;
