@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import Post from './Post';
+import Post from './PostComponent';
 import EditComponent from './EditComponent';
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container';
