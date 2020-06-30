@@ -1,4 +1,6 @@
-const postReducer = (state = [], action) => {
+import { POSTS } from '../shared/posts';
+
+export const postsReducer = (state = POSTS, action) => {
     switch(action.type) {
         case 'ADD_POST':
             return state.concat([action.data]);
@@ -21,5 +23,3 @@ const postReducer = (state = [], action) => {
             return state;
     }
 }
-
-export default postReducer;

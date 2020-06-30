@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button'
+import Alert from '@material-ui/lab/Alert';
 
 const styles = theme => ({
     root: {
@@ -33,7 +34,7 @@ class PostForm extends Component {
     }
 
     handleSubmit = (e) => {
-        e.preventDefault();
+        
         const title = this.state.Title;
         const message =  this.state.Post;
         const data = {
@@ -49,6 +50,7 @@ class PostForm extends Component {
             Title: '',
             Post: '',
         });
+        alert("Post has been posted succesfully!");
     }
 
     handleInputChange(event) {
@@ -66,6 +68,7 @@ class PostForm extends Component {
 
         return (
             <Container maxWidth="sm" className={classes.root}>
+                
                 <Grid container alignItems="center" justify="center">
                     <Grid item xs={12}>
                         <Typography variant="h2" align="center" color="textPrimary" display="block" gutterBottom>

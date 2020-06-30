@@ -21,25 +21,25 @@ const styles = theme => ({
 });
 
 class AllPost extends Component {
+    
     render() {
         const { classes } = this.props;
+        console.log(this.props);
 
         return (
             <Container maxWidth="sm" className={classes.root}>
-                <Grid container alignItems="center" justify="center">
+                <Grid container alignItems="center" justify="center" spacing={2}>
                     <Grid item xs={12}>
                         <Typography variant="h2" align="center" color="textPrimary" display="block" gutterBottom>
                             All Posts
                         </Typography>
                     </Grid>
-                    <Grid item xs={12}>
-                        {this.props.posts.map((post) => (
-                            <Fragment key={post.id}>
+                    {this.props.posts.posts.map((post) => (
+                        <Grid item xs={12} key={post.id}>
                                 {post.editing ? <EditComponent post={post} key={post.id} /> :
                                     <Post key={post.id} post={post} />}
-                            </Fragment>
-                        ))}
-                    </Grid>
+                        </Grid>
+                    ))}
                 </Grid>
             </Container>
         );

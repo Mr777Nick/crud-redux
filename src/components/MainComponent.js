@@ -2,7 +2,14 @@ import React, { Component, Fragment } from 'react';
 import PostForm from './PostFormComponent';
 import AllPost from './AllPostComponent';
 import Header from './Header';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => {
+    return {
+        posts: state.posts
+    }
+}
 
 class Main extends Component {
     render() {
@@ -11,7 +18,7 @@ class Main extends Component {
                 <Header />
                 <Switch>
                     <Route path="/home" component={PostForm} />
-                    <Route path="/posts" component={AllPost} />
+                    <Route path="/posts" component={AllPost} posts={this.props.posts}/>
                     <Redirect to="/home" />
                 </Switch>
             </Fragment>
@@ -19,4 +26,4 @@ class Main extends Component {
     }
 }
 
-export default Main;
+export default withRouter(connect(mapStateToProps)(Main));

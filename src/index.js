@@ -5,11 +5,11 @@ import './index.css';
 import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import postReducer from './reducers/postReducer';
+import { postsReducer } from './reducers/postsReducer';
 import 'fontsource-roboto';
 
 
-const store = createStore(postReducer);
+const store = createStore(postsReducer);
 
 ReactDOM.render(
   <React.StrictMode>
